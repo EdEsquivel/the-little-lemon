@@ -7,8 +7,9 @@ import About from "./About.js";
 function Main() {
   return (
     <>
+      <hr />
       <main>
-        <h3>Main Content</h3>
+        <h1>Main Content</h1>
         <Hero />
         <Highlights />
         <Testimonials />
