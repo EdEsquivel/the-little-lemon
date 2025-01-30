@@ -7,7 +7,7 @@ import Nav from "./components/Nav";
 function App() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <Nav />
       <Main />
       <Footer />

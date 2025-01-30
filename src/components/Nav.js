@@ -1,29 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
+import logo from "../icons_assets/Logo .svg"
 
-function Nav() {
+const Nav = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  }
   return (
     <>
       <section>
-        <h2>Navigation Section</h2>
-        <nav>
-          <ul>
+        <nav className={`navbar ${menuOpen ? "open" : ""}`}>
+          <a href="/" className="logo">
+            <img src={logo} alt="logo" />
+          </a>
+
+          {/* Mobile Navbar */}
+          <div className="menu-icon" onClick={toggleMenu}>
+            <div className="bar"></div>
+            <div className="bar"></div>
+            <div className="bar"></div>
+          </div>
+
+          {/* Nav items */}
+          <ul className={`nav-links ${menuOpen ? "visible" : ""}`}>
             <li>
-              <a href="#">Home</a>
+              <a href="/">Home</a>
             </li>
             <li>
-              <a href="#">About</a>
+              <a href="/">About</a>
             </li>
             <li>
-              <a href="#">Menu</a>
+              <a href="/">Services</a>
             </li>
             <li>
-              <a href="#">Reservations</a>
+              <a href="/">Menu</a>
             </li>
             <li>
-              <a href="#">Order Online</a>
+              <a href="/">Reservations</a>
             </li>
             <li>
-              <a href="#">Login</a>
+              <a href="/">Order Online</a>
+            </li>
+            <li>
+              <a href="/">Login</a>
             </li>
           </ul>
         </nav>
