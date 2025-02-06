@@ -102,7 +102,7 @@ h3 {
 button {
   background-color: #F4CE14;
   color: black;
-  padding: 14px 18px;
+  padding: 14px 35px;
   border: none;
   text-decoration: none;
   border-radius: 12px;
@@ -188,9 +188,8 @@ input, label{
 }
 
 .menu-items{
-  /* height: 400px; */
   width: 350px;
-  background: #a9c8be;
+  background: #EDEFEE;
   border-radius: 8px;
 }
 
@@ -201,7 +200,7 @@ input, label{
 }
 
 .menu-content{
-  padding: 5px 15px;
+  padding: 5px 25px;
 }
 
 
@@ -210,12 +209,84 @@ input, label{
   justify-content: space-between;
 }
 
+.heading p{
+  font-size: 18px;
+  font-weight: 600;
+  color: #D68000;
+}
+
 .orderbtn{
   padding: 5px 12px;
+  margin-top: 50px;
   margin-bottom: 20px;
   font-size: 16px;
   font-weight: 600;
 }
+
+/* Confirmation Dialog */
+
+.confirmation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirmation-box {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.confirm-btn {
+  background: #4c7567;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.cancel-btn {
+  background: gray;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.confirmation-message {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #495E57;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  animation: fadeOut 5s forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 
 footer section{
   padding: 10px 13%;
