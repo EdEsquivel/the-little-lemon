@@ -1,57 +1,64 @@
 import React from "react";
-import logo from "../icons_assets/Logo.svg";
+import logo from "../icons_assets/Logo .svg";
 
-function Footer() {
+const Footer = () => {
   return (
     <>
-      <hr />
-      <h2>Footer</h2>
       <footer>
-        <figure>
-          <img src={logo} alt="Website Logo" />
-        </figure>
-        <h3>
-          Doormat <br />
-          Navigation
-        </h3>
-        <nav>
-          <ul>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/about">About</a>
-            </li>
-            <li>
-              <a href="/menu">Menu</a>
-            </li>
-            <li>
-              <a href="/reservation">Reservation</a>
-            </li>
-          </ul>
-        </nav>
+        <section>
+          <figure className="company-info">
+            <img src={logo} alt="Website Logo" />
+            <figcaption>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</figcaption>
+          </figure>            
+          <div>
+            <h3>Important Links</h3>        
+              <ul>
+                <li>
+                  <a href="/">Home</a>
+                </li>
+                <li>
+                  <a href="#header-section">About</a>
+                </li>
+                <li>
+                  <a href="#menu-section">Menu</a>
+                </li>
+                <li>
+                  <a href="/booking">Reservations</a>
+                </li>
+                <li>
+                  <a href="#menu-section">Order Online</a>
+                </li>
+                <li>
+                  <a href="/login">Login</a>
+                </li>
+              </ul>        
+          </div>
+             
 
-        <div className="contact-info">
-          <h3>Contact</h3>
-          <p>12 Main Street, Chicago, USA</p>
-          <p>321-456-7890</p>
-          <p>contact@littlelemon.com</p>
-        </div>
+          <div className="">
+            <h3>Contact</h3>
+            <ul>
+              <li>Address: <br/>12 Main Street, Chicago, USA</li>
+              <li>Phone: <br/>321-456-7890</li>
+              <li>Email: <br/>contact@littlelemon.com</li>
+            </ul>
+          </div>
 
-        <div className="social-media">
-          <h3>Social Media Links</h3>
-          <ul>
-            <li>
-              <a href="https://www.facebook.com">Facebook</a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com">Instagram</a>
-            </li>
-            <li>
-              <a href="https://www.twitter.com">Twitter</a>
-            </li>
-          </ul>
-        </div>
+          <div className="social-media">
+            <h3>Social Media Links</h3>
+            <ul>
+              <li>
+                <a href="https://www.facebook.com">Facebook</a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com">Instagram</a>
+              </li>
+              <li>
+                <a href="https://www.twitter.com">Twitter</a>
+              </li>
+            </ul>
+          </div>
+        </section>
       </footer>
     </>
   );

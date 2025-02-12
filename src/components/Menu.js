@@ -21,7 +21,7 @@ const Menu = () => {
     };
 
     return (
-        <div className='menu-container'>
+        <div className='menu-container' id="menu-section">
             <div className='menu-header'>
                 <h2>This week's specials!</h2>
                 <button>Online Menu</button>

@@ -1,20 +1,27 @@
+/* General Styles */
 
-body{
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   width: 100%;
   margin: 0 auto;
 }
 
-li{
+li {
   list-style: none;
 }
-a{
+
+a {
   text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
-nav{
+nav {
   z-index: 10001;
 }
-
 
 .navbar {
   padding: 10px 13%;
@@ -28,13 +35,27 @@ nav ul li {
   padding: 1em;
 }
 
-nav ul li a{
+nav ul li a {
   color: #000;
+  position: relative;
 }
 
-nav ul li a:hover{
-  text-decoration: underline solid #495E57;
-  
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #495E57;
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
 .menu-icon {
@@ -68,20 +89,17 @@ nav ul li a:hover{
   transition: all 0.3s ease-in-out;
 }
 
-
-/* header section */
-
+/* Header Section */
 .header {
   background-color: #495e57;
   padding: 40px 0;
 }
 
 .header section {
-color: #EDEFEE;
-padding: 10px 13%;
-position: relative;
+  color: #EDEFEE;
+  padding: 10px 13%;
+  position: relative;
 }
-
 
 h2 {
   color: #F4CE14;
@@ -109,9 +127,19 @@ button {
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.banner-img{
+button:hover {
+  background-color: #e0b813;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.banner-img {
   position: absolute;
   right: 13%;
   top: 15%;
@@ -124,107 +152,117 @@ button {
   border-radius: 20px;
 }
 
-
-form, .comfirm{
-  padding: 10px 13%;
+/* Form Styling */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.formField{
-  padding: 50px 20px;
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
-input, label{
-  display: inline-block;
-  margin-right: 20px;
+legend {
+  font-size: 24px;
+  font-weight: bold;
+  color: #495E57;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+form div {
   margin-bottom: 20px;
 }
-#book-date, #book-time, #book-guests, #book-occasion{
-  background: #bdbdbd43;
-  padding: 8px 24px;
-  border: none;
-  outline: none;
-  border-radius: 2px;
-}
 
-.btnReceive input{
-  padding: 12px 16px;
-  margin-top: 20px;
-  background: #495e57;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-
-}
-
-.confirm {
-  color: #495e57;
-}
-
-
-/* menu items */
-
-.menu-container{
-  margin: 110px auto;
-  padding: 10px 13%;
-}
-
-.menu-container h2{
-  color: #000;
-}
-
-.menu-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.cards{
-  margin-top: 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem 1rem;
-}
-
-.menu-items{
-  width: 350px;
-  background: #EDEFEE;
-  border-radius: 8px;
-}
-
-.menu-container img{
-  width: 100%;
-  height: 233px;
-  border-radius: 8px;
-}
-
-.menu-content{
-  padding: 5px 25px;
-}
-
-
-.menu-content .heading{
-  display: flex;
-  justify-content: space-between;
-}
-
-.heading p{
-  font-size: 18px;
-  font-weight: 600;
-  color: #D68000;
-}
-
-.orderbtn{
-  padding: 5px 12px;
-  margin-top: 50px;
-  margin-bottom: 20px;
+label {
+  display: block;
   font-size: 16px;
   font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+input[type="date"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+input[type="date"]:focus,
+input[type="number"]:focus,
+select:focus {
+  border-color: #495E57;
+  outline: none;
+}
+
+select {
+  appearance: none;
+  background: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2212%22%20height%3D%2212%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M6%209l4-5H2z%22%20fill%3D%22%23333%22%2F%3E%3C%2Fsvg%3E") no-repeat right 12px center;
+  background-color: #f9f9f9;
+}
+
+/* Validation Styles */
+input:invalid,
+select:invalid {
+  border-color: #ff6b6b;
+}
+
+input:invalid:focus,
+select:invalid:focus {
+  border-color: #ff6b6b;
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 14px;
+  margin-top: 5px;
+  display: none;
+}
+
+input:invalid + .error-message,
+select:invalid + .error-message {
+  display: block;
+}
+
+.btnReceive {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.btnReceive input[type="submit"] {
+  background: #495E57;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btnReceive input[type="submit"]:hover {
+  background: #3a4a43;
+  transform: scale(1.05);
+}
+
+.btnReceive input[type="submit"]:active {
+  transform: scale(0.95);
 }
 
 /* Confirmation Dialog */
-
 .confirmation-overlay {
   position: fixed;
   top: 0;
@@ -252,22 +290,43 @@ input, label{
   gap: 10px;
 }
 
-.confirm-btn {
-  background: #4c7567;
-  color: white;
+.confirm-btn,
+.cancel-btn {
   padding: 8px 16px;
   border: none;
   cursor: pointer;
   border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.confirm-btn {
+  background: #4c7567;
+  color: white;
+}
+
+.confirm-btn:hover {
+  background: #3a5a4f;
+  transform: scale(1.05);
+}
+
+.confirm-btn:active {
+  transform: scale(0.95);
 }
 
 .cancel-btn {
   background: gray;
   color: white;
-  padding: 8px 16px;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
+}
+
+.cancel-btn:hover {
+  background: #666;
+  transform: scale(1.05);
+}
+
+.cancel-btn:active {
+  transform: scale(0.95);
 }
 
 .confirmation-message {
@@ -279,46 +338,209 @@ input, label{
   color: white;
   padding: 10px 20px;
   border-radius: 4px;
-  animation: fadeOut 5s forwards;
+  animation: fadeOut 8s forwards;
 }
 
 @keyframes fadeOut {
   0% { opacity: 1; }
+  95% { opacity: 0.95; }
   100% { opacity: 0; }
 }
 
+/* Menu Items */
+.menu-container {
+  margin: 110px auto;
+  padding: 10px 13%;
+}
 
-footer section{
+.menu-container h2 {
+  color: #000;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cards {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem 1rem;
+}
+
+.menu-items {
+  width: 350px;
+  background: #EDEFEE;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.menu-items:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid #ccc;
+}
+
+.menu-container img {
+  width: 100%;
+  height: 233px;
+  border-radius: 8px 8px 0 0;
+  transition: transform 0.3s ease;
+}
+
+.menu-items:hover img {
+  transform: scale(1.05);
+}
+
+.menu-content {
+  padding: 5px 25px;
+}
+
+.menu-content .heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.heading p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #D68000;
+}
+
+.orderbtn {
+  padding: 5px 12px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #F4CE14;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.orderbtn:hover {
+  background-color: #e0b813;
+  transform: scale(1.05);
+}
+
+.orderbtn:active {
+  transform: scale(0.95);
+}
+
+/* Footer Section */
+
+footer section {
   padding: 10px 13%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 50px;
 }
 
-.company-info img{
+footer .company-info,
+footer .contact-info,
+footer .social-links {
+  flex: 1;
+  min-width: 220px;
+  margin-bottom: 20px;
+}
+
+footer .company-info img {
   margin-top: 12px;
   cursor: pointer;
-  width: 200px;
+  width: 180px;
 }
 
-.company-info p{
+footer .company-info figcaption {
+  width: 100%;
+  font-size: 15px;
+  margin-top: 10px;
   width: 320px;
 }
 
-footer h3{
+footer h3 {
   font-size: 18px;
+  margin-bottom: 15px;
+  color: #495E57;
 }
 
-footer ul{
+footer ul {
   padding: 0;
+  margin: 0;
 }
 
-footer ul li{
+footer ul li {
   padding: 8px 0;
+  list-style: none;
 }
 
+footer a {
+  color: #495E57;
+  position: relative;
+  transition: color 0.3s ease;
+}
 
-@media screen and (max-width: 768px){
+footer a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #F4CE14;
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+footer a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+footer a:hover {
+  color: #F4CE14;
+}
+
+/* Responsive Footer */
+@media screen and (max-width: 768px) {
+  footer section {
+    padding: 10px 8%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  footer .company-info,
+  footer .contact-info,
+  footer .social-links {
+    min-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  footer .company-info img {
+    margin: 0 auto;
+    display: block;
+  }
+
+  footer .company-info figcaption {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
   .menu-icon {
     display: block;
   }
@@ -334,51 +556,50 @@ footer ul li{
     padding: 20px 0;
   }
 
-  .navbar{
-    background:#fff;
+  .navbar {
+    background: #fff;
     padding: 10px 8%;
   }
 
-  nav ul li a{
+  nav ul li a {
     color: #fff;
   }
 
-  .bar{
+  .bar {
     background: #333333;
   }
 
-  .banner-img{
+  .banner-img {
     display: none;
   }
 
-  form, .comfirm{
+  form,
+  .comfirm {
     padding: 10px 8%;
   }
 
-
-  .header section, .menu-container{
+  .header section,
+  .menu-container {
     padding: 10px 8%;
   }
-  .menu-container{
+
+  .menu-container {
     margin: 20px 0;
   }
-  .menu-header{
+
+  .menu-header {
     justify-content: flex-start;
   }
 
-  .menu-items{
+  .menu-items {
     width: 100%;
   }
 
-  footer section{
-    padding: 10px 8%;
-    flex-direction: column;
-  }
-  .company-info p{
+  .company-info figcaption {
     width: 100%;
   }
 }
 
-.hidden{
+.hidden {
   display: none;
 }
