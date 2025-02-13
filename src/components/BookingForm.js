@@ -8,13 +8,15 @@ const BookingForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!date || !time || !guests) {
+      return; // Prevent submission if any required field is missing
+    }
     const reservationDetails = {
       date,
       time,
       guests,
-      occasion,
     };
-    props.submitForm(reservationDetails); // Pass reservation details to the parent component
+    props.submitForm(reservationDetails);
   };
 
   const handleChange = (e) => {
